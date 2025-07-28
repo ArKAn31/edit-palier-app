@@ -38,3 +38,15 @@ if st.button("Enregistrer les changements"):
     paliers[crypto]['vente'] = [v.strip() for v in ventes.split("\n") if v.strip()]
     sauvegarder_paliers(paliers)
     st.success("✅ Modifications enregistrées !")
+
+if st.button("Afficher le contenu de paliers.json"):
+    with open(PALIERS_FILE, "r") as f:
+        contenu = f.read()
+    # Affiche le contenu dans un bloc code
+    st.code(contenu, language="json")
+    # Ajoute un vrai bouton "Copier"
+    st.markdown("""
+    <button onclick="navigator.clipboard.writeText(document.querySelector('pre code').innerText)">Copier dans le presse-papier</button>
+    """, unsafe_allow_html=True)
+    st.info("Clique sur le bouton ci-dessus pour copier le texte !")
+
