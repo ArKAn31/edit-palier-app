@@ -44,9 +44,3 @@ if st.button("Afficher le contenu de paliers.json"):
         contenu = f.read()
     # Affiche le contenu dans un bloc code
     st.code(contenu, language="json")
-    # Ajoute un vrai bouton "Copier"
-    st.markdown("""
-    <button onclick="navigator.clipboard.writeText(document.querySelector('pre code').innerText)">Copier dans le presse-papier</button>
-    """, unsafe_allow_html=True)
-    st.info("Clique sur le bouton ci-dessus pour copier le texte !")
-
